@@ -24,11 +24,11 @@ public class OrderRestController {
     }
 
     @RequestMapping(value = "/sort", method = RequestMethod.POST)
-    public @ResponseBody HashMap sortedOrder(@RequestBody Order order) {
+    public @ResponseBody Order sortedOrder(@RequestBody Order order) {
         HashMap sortedOrder = new HashMap();
         order.sizeItems();
         System.out.println(order.getItems().size());
-        sortedOrder = order.sortByType();
-        return order.boxOrder(sortedOrder);
+        order.boxOrder(order.sortByType());
+        return order;
     }
 }

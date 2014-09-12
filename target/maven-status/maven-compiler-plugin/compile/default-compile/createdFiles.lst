@@ -1,4 +1,5 @@
 org/OrderSorter/Domain/Item.class
+org/OrderSorter/Controller/SortOrderController.class
 org/OrderSorter/Controller/ItemController.class
 org/OrderSorter/Domain/Order.class
 org/OrderSorter/Controller/OrderRestController.class

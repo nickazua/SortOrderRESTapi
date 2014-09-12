@@ -29,6 +29,14 @@ public class Order {
         this.items = items;
     }
 
+    public ArrayList<Box> getBoxes() {
+        return boxes;
+    }
+
+    public void setBoxes(ArrayList<Box> boxes) {
+        this.boxes = boxes;
+    }
+
     public void randomizeOrder() {
 
         int num_items = 1 + (int)(Math.random() * 50);
@@ -116,8 +124,8 @@ public class Order {
         return maxItems;
     }
 
-    public HashMap<String, ArrayList<Box>> boxOrder(HashMap<String,ArrayList<Item>> itemsByType) {
-       ArrayList<Box> boxes = new ArrayList<Box>();
+    public void boxOrder(HashMap<String,ArrayList<Item>> itemsByType) {
+//       ArrayList<Box> boxes = new ArrayList<Box>();
         int boxNum = 1000;
 
         for(String type : itemsByType.keySet()) {
@@ -135,18 +143,17 @@ public class Order {
                 for (int y = i; y < i + maxItems && y < typeItems.size(); y++ )
                 {
                     box.addItem(typeItems.get(y));
-                    System.out.println( "add item to box");
+                    System.out.println( "add item " + typeItems.get(y).getName() + " to box");
                 }
-                boxes.add(box);
+                this.boxes.add(box);
 
             }
             System.out.println( "out of for loop");
 
         }
-
-        HashMap<String, ArrayList<Box>> mapBoxes = new HashMap<String, ArrayList<Box>>();
-        mapBoxes.put("boxes", boxes);
-        return mapBoxes;
+//        HashMap<String, ArrayList<Box>> mapBoxes = new HashMap<String, ArrayList<Box>>();
+//        mapBoxes.put("boxes", boxes);
+//        return mapBoxes;
     }
 
 }
