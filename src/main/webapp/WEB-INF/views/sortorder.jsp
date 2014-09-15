@@ -12,21 +12,20 @@
     <title>Order</title>
     </head>
     <body>
-    	<section>
-    		<div class="jumbotron">
-    			<div class="container">
-    				<h1>Order</h1>
-    				<p>Random order sorter</p>
-    			</div>
-    		</div>
-    	</section>
-
     	<section class="container" ng-app="sortOrderApp">
     		<div ng-controller="sortOrderCtrl">
+
+            <div class="jumbotron">
+                <div class="container">
+                    <h1>Name: {{header.nameGen}} </h1>
+                    <p>Order Number:  {{header.orderNum}} </p>
+                </div>
+            </div>
+
+
                 <div>
-    				<a class="btn btn-danger pull-left"
-    					ng-click="randomOrder()">
-    					<span class="glyphicon glyphicon-remove-sign"></span> Sort Random Order
+    				<a class="btn btn-primary"
+    					ng-click="randomOrder()">Sort Random Order
     				</a>
     			</div>
     			<div>
@@ -34,9 +33,9 @@
     			    <h1 ng-repeat="box in order.boxes">Box {{box.boxId}}
                         <table class="table table-hover">
                             <tr>
-                                <th>Name</th>
+                                <th>Item Name</th>
                                 <th>Item Type</th>
-                                <th>SKU</th>
+                                <th>SKU#</th>
                             </tr>
 
                             <tr ng-repeat="item in box.boxItems">

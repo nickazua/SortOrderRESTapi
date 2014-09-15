@@ -126,7 +126,7 @@ public class Order {
 
     public void boxOrder(HashMap<String,ArrayList<Item>> itemsByType) {
 //       ArrayList<Box> boxes = new ArrayList<Box>();
-        int boxNum = 1000;
+        int boxNum = 0;
 
         for(String type : itemsByType.keySet()) {
 
