@@ -24,7 +24,7 @@
 
 
                 <div>
-    				<a class="btn btn-primary"
+    				<a class="btn btn-lg btn-success btn-block"
     					ng-click="randomOrder()">Sort Random Order
     				</a>
     			</div>
