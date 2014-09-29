@@ -9,6 +9,7 @@ public class Order {
 
     private ArrayList<Item> items = new ArrayList<Item>();
     private ArrayList<Box> boxes = new ArrayList<Box>();
+    private int numOfBoxes = 0;
 
     public Order() {
     }
@@ -151,9 +152,19 @@ public class Order {
             System.out.println( "out of for loop");
 
         }
+        setNumOfBoxes(boxNum);
+        System.out.println(numOfBoxes);
+
 //        HashMap<String, ArrayList<Box>> mapBoxes = new HashMap<String, ArrayList<Box>>();
 //        mapBoxes.put("boxes", boxes);
 //        return mapBoxes;
     }
 
+    public int getNumOfBoxes() {
+        return numOfBoxes;
+    }
+
+    public void setNumOfBoxes(int numOfBoxes) {
+        this.numOfBoxes = numOfBoxes;
+    }
 }

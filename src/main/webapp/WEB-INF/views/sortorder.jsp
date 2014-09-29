@@ -19,13 +19,15 @@
                 <div class="container">
                     <h1>Name: {{header.nameGen}} </h1>
                     <p>Order Number:  {{header.orderNum}} </p>
+                    <p>Number of Boxes: {{order.numOfBoxes}} </p>
                 </div>
             </div>
 
 
                 <div>
-    				<a class="btn btn-lg btn-success btn-block"
+    				<a class="btn btn-danger btn-mini pull-left"
     					ng-click="randomOrder()">Sort Random Order
+	                <a class="btn btn-danger btn-mini pull-right">logout</a>
     				</a>
     			</div>
     			<div>

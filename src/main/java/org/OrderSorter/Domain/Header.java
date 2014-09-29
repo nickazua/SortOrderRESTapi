@@ -6,13 +6,15 @@ public class Header {
 
     private String orderNum;
     private String nameGen;
+    private String numOfBoxes;
 
     public Header(){
 
     }
-    public Header(String orderNum, String nameGen) {
+    public Header(String orderNum, String nameGen, String numOfBoxes) {
         this.orderNum = new String(orderNum);
         this.nameGen = new String(nameGen);
+        this.numOfBoxes = new String(numOfBoxes);
     }
 
     public void setOrderNum(String orderNum) {
@@ -23,12 +25,20 @@ public class Header {
         this.nameGen = nameGen;
     }
 
+    public void setNumOfBoxes(String numOfBoxes) {
+        this.numOfBoxes = numOfBoxes;
+    }
+
     public String getOrderNum() {
         return this.orderNum;
     }
 
     public String getNameGen() {
         return this.nameGen;
+    }
+
+    public String getNumOfBoxes() {
+        return this.numOfBoxes;
     }
 
     public void generateOrderNum() {
@@ -111,6 +121,15 @@ public class Header {
             default: this.nameGen = "error";
         }
         System.out.println(nameGen);
+
+    }
+
+    public void generateNumOfBoxes() {
+
+        Random r = new Random();
+
+        int numOfBoxes = 100000000 + r.nextInt(99999999);    //needs code to count boxes
+        this.numOfBoxes = String.valueOf(numOfBoxes);
 
     }
 }

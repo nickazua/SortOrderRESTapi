@@ -20,6 +20,7 @@ public class HeaderController {
         Header header = new Header();
         header.generateOrderNum();
         header.generateCustomerName();
+        header.generateNumOfBoxes();
         return header;
     }
 }
