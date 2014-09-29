@@ -27,7 +27,6 @@
                 <div>
     				<a class="btn btn-danger btn-mini pull-left"
     					ng-click="randomOrder()">Sort Random Order
-	                <a class="btn btn-danger btn-mini pull-right">logout</a>
     				</a>
     			</div>
     			<div>

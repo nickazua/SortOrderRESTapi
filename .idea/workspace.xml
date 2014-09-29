@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="681591e7-2fa8-466a-8453-c774efe7b78b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_3_2_0_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_3_2_0_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/OrderSorter/Domain/Header.java" afterPath="$PROJECT_DIR$/src/main/java/org/OrderSorter/Domain/Header.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/OrderSorter/Controller/HeaderController.java" afterPath="$PROJECT_DIR$/src/main/java/org/OrderSorter/Controller/HeaderController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/OrderSorter/Domain/Order.java" afterPath="$PROJECT_DIR$/src/main/java/org/OrderSorter/Domain/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SortOrderRESTapi.iml" afterPath="$PROJECT_DIR$/SortOrderRESTapi.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sortorder.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sortorder.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SortOrderRESTapi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,10 +96,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="sortorder.jsp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="sortorder.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sortorder.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="40" selection-start="1042" selection-end="1042" vertical-scroll-proportion="0.0">
+            <state line="29" column="0" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.7096774">
               <folding />
             </state>
           </provider>
@@ -149,10 +141,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="33" selection-start="259" selection-end="259" vertical-scroll-proportion="0.22580644">
+            <state line="6" column="33" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -188,7 +180,7 @@
       <file leaf-file-name="Order.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/OrderSorter/Domain/Order.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="157" column="58" selection-start="4615" selection-end="4615" vertical-scroll-proportion="0.0">
+            <state line="157" column="58" selection-start="4612" selection-end="4612" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -817,13 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sortorder.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="40" selection-start="1042" selection-end="1042" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/OrderSorter/Controller/SortOrderController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="70" selection-start="593" selection-end="596" vertical-scroll-proportion="0.0">
@@ -840,14 +825,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/OrderSorter/Domain/Order.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="58" selection-start="4615" selection-end="4615" vertical-scroll-proportion="0.0">
+        <state line="157" column="58" selection-start="4612" selection-end="4612" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="33" selection-start="259" selection-end="259" vertical-scroll-proportion="0.22580644">
+        <state line="6" column="33" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sortorder.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.7096774">
           <folding />
         </state>
       </provider>
