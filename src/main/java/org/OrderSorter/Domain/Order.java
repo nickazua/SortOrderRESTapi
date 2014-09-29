@@ -43,7 +43,7 @@ public class Order {
         int num_items = 1 + (int)(Math.random() * 50);
         String[][] item_inv = {
                 {"Shoes", "shoes", "1234567"},
-                {"Heels", "shoes", "12245567"},
+                {"Heels", "shoes", "1224567"},
                 {"Eye liner", "beauty", "3124567"},
                 {"Accessory", "accessory", "4123567"},
                 {"Blender", "housewares", "5123467"},
@@ -55,7 +55,7 @@ public class Order {
 
         for (int i = 0; i < num_items; i++) {
             int rand_num = (int)(Math.random() * item_inv.length);
-            Item random_item = new Item(item_inv[rand_num][0], item_inv[rand_num][1], Integer.toString(i + 1));
+            Item random_item = new Item(item_inv[rand_num][0], item_inv[rand_num][1], item_inv[rand_num][2]);
             randItems.add(random_item);
 
         }
