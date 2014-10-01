@@ -126,29 +126,6 @@ public class Order {
         }
     }
 
-//    public int maxItems(String type) {
-//        int maxItems = 0;
-//
-//        if ( type.equals("housewares") )
-//        {
-//            maxItems = 1;
-//        }
-//        else if ( type.equals("shoes") || type.equals("bags") )
-//        {
-//            maxItems = 3;
-//        }
-//        else if ( type.equals("hats") || type.equals("clothing") || type.equals("beauty") )
-//        {
-//            maxItems = 4;
-//        }
-//        else if ( type.equals("accessory") )
-//        {
-//            maxItems = 9;
-//        }
-//
-//
-//        return maxItems;
-//    }
 
     public void boxOrder(HashMap<String,ArrayList<Item>> itemsByType) {
 //       ArrayList<Box> boxes = new ArrayList<Box>();
@@ -192,4 +169,6 @@ public class Order {
     public void setNumOfBoxes(int numOfBoxes) {
         this.numOfBoxes = numOfBoxes;
     }
+
+
 }

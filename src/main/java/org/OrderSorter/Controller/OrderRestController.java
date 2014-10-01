@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 @Controller
@@ -46,6 +47,7 @@ public class OrderRestController {
 
         order.sizeItems();
         System.out.println("Number of items: " + order.getItems().size());
+
         order.boxOrder(order.sortByType());
         return order;
     }
