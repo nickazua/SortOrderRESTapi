@@ -1,6 +1,6 @@
 package org.OrderSorter.Domain;
 
-public class Item {
+public class Item implements Comparable<Item> {
 
     private String name;
     private String itemType;
@@ -46,5 +46,15 @@ public class Item {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+
+    @Override
+    public int compareTo(Item compare_item) {
+        int compare_size = ((Item)compare_item).getSize();
+        // Ascending order
+        // return this.size - compare_size;
+        // Descending order
+        return compare_size - this.size;
     }
 }

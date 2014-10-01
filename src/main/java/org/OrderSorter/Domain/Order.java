@@ -1,6 +1,7 @@
 package org.OrderSorter.Domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -89,6 +90,19 @@ public class Order {
         }
 
         return itemsByType;
+    }
+
+    public ArrayList<Item> sortDescBySize() {
+        ArrayList<Item> sorted_items = this.items;
+
+        Collections.sort(sorted_items);
+
+        for (Item i : sorted_items) {
+            System.out.println(i.getName() + " " + i.getSize());
+        }
+
+        return sorted_items;
+
     }
 
     public void sizeItems() {
