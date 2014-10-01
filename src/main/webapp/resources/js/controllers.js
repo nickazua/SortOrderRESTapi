@@ -6,14 +6,15 @@ sortOrderApp.controller('sortOrderCtrl', function ($scope, $http) {
         $http.get('/header')
         .success(function(data) {
             $scope.header = data;
-
-            $http.post('/rest/order/random')
+            var url = '/rest/order/sort/random'
+            $http.get(url)
             .success(function(data) {
-                $http.post('/rest/order/sort', data)
-                .success(function(data) {
-                    $scope.order = data;
-                })
+                $scope.order = data;
             })
+            .error(function (e) {
+                alert("error: " + e);
+                callback(e);
+            });
         });
     };
 });

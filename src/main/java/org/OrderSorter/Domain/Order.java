@@ -10,6 +10,9 @@ public class Order {
     private ArrayList<Item> items = new ArrayList<Item>();
     private ArrayList<Box> boxes = new ArrayList<Box>();
     private int numOfBoxes = 0;
+    private int orderNumber = 0;
+
+
 
     public Order() {
     }
@@ -38,6 +41,14 @@ public class Order {
         this.boxes = boxes;
     }
 
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(int orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
     public void randomizeOrder() {
 
         int num_items = 1 + (int)(Math.random() * 50);
@@ -45,7 +56,7 @@ public class Order {
                 {"Shoes", "shoes", "1234567"},
                 {"Heels", "shoes", "1224567"},
                 {"Eye liner", "beauty", "3124567"},
-                {"Accessory", "accessory", "4123567"},
+                {"Accessory", "accessories", "4123567"},
                 {"Blender", "housewares", "5123467"},
                 {"Handbag", "bags", "4345746"},
                 {"beanie", "hats", "5345746"}
@@ -90,7 +101,7 @@ public class Order {
             } else if (itemType.equals("hats") || itemType.equals("clothing") ||itemType.equals("beauty")) {
                 item.setSize(2);
 
-            } else if (itemType.equals("accessory")) {
+            } else if (itemType.equals("accessories")) {
                 item.setSize(1);
 
             } else if (itemType.equals("housewares")) {
@@ -101,29 +112,29 @@ public class Order {
         }
     }
 
-    public int maxItems(String type) {
-        int maxItems = 0;
-
-        if ( type.equals("housewares") )
-        {
-            maxItems = 1;
-        }
-        else if ( type.equals("shoes") || type.equals("bags") )
-        {
-            maxItems = 3;
-        }
-        else if ( type.equals("hats") || type.equals("clothing") || type.equals("beauty") )
-        {
-            maxItems = 4;
-        }
-        else if ( type.equals("accessory") )
-        {
-            maxItems = 9;
-        }
-
-
-        return maxItems;
-    }
+//    public int maxItems(String type) {
+//        int maxItems = 0;
+//
+//        if ( type.equals("housewares") )
+//        {
+//            maxItems = 1;
+//        }
+//        else if ( type.equals("shoes") || type.equals("bags") )
+//        {
+//            maxItems = 3;
+//        }
+//        else if ( type.equals("hats") || type.equals("clothing") || type.equals("beauty") )
+//        {
+//            maxItems = 4;
+//        }
+//        else if ( type.equals("accessory") )
+//        {
+//            maxItems = 9;
+//        }
+//
+//
+//        return maxItems;
+//    }
 
     public void boxOrder(HashMap<String,ArrayList<Item>> itemsByType) {
 //       ArrayList<Box> boxes = new ArrayList<Box>();
@@ -153,7 +164,7 @@ public class Order {
 
         }
         setNumOfBoxes(boxNum);
-        System.out.println(numOfBoxes);
+        System.out.println("Number of boxes: " + numOfBoxes);
 
 //        HashMap<String, ArrayList<Box>> mapBoxes = new HashMap<String, ArrayList<Box>>();
 //        mapBoxes.put("boxes", boxes);

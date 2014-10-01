@@ -120,7 +120,7 @@ public class Header {
                 break;
             default: this.nameGen = "error";
         }
-        System.out.println(nameGen);
+        System.out.println("Header: " + nameGen);
 
     }
 

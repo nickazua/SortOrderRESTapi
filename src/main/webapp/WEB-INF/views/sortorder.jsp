@@ -7,7 +7,7 @@
     <link rel="stylesheet"
         href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
-    <script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
     <script src="/resource/js/controllers.js"></script>
     <title>Order</title>
     </head>
@@ -18,16 +18,19 @@
             <div class="jumbotron">
                 <div class="container">
                     <h1>Name: {{header.nameGen}} </h1>
-                    <p>Order Number:  {{header.orderNum}} </p>
+                    <p>Order Number:  {{order.orderNumber}} </p>
                     <p>Number of Boxes: {{order.numOfBoxes}} </p>
                 </div>
             </div>
+
+            <div>
+                <p>Yo: {{greeting1}} </p>
+                <p>Hello: {{greeting}} </p>
 
 
                 <div>
     				<a class="btn btn-danger btn-mini pull-left"
     					ng-click="randomOrder()">Sort Random Order
-	                <a class="btn btn-danger btn-mini pull-right">logout</a>
     				</a>
     			</div>
     			<div>
