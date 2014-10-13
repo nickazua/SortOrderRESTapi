@@ -109,7 +109,8 @@ public class Order {
         for (Item item : this.getItems()) {
             String itemType = item.getItemType().toLowerCase();
 
-            if (itemType.equals("shoes") || itemType.equals("bags")) {
+//            if (itemType.equals("shoes") || itemType.equals("bags")) {
+            if (itemType.equals("shoes")) {
                 item.setSize(3);
 
             } else if (itemType.equals("hats") || itemType.equals("clothing") ||itemType.equals("beauty")) {
@@ -121,6 +122,8 @@ public class Order {
             } else if (itemType.equals("housewares")) {
                 item.setSize(5);
 
+            } else if (itemType.equals("bags")) {
+                item.setSize(4);
             }
 
         }

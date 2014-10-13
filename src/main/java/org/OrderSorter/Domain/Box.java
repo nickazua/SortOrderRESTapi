@@ -36,4 +36,16 @@ public class Box {
         boxItems.add(item);
         currentCapacity += item.getSize();
     }
+
+    public Item removeLastItem() {
+        Item removed_item = boxItems.remove(boxItems.size() - 1);
+        currentCapacity -= removed_item.getSize();
+        return removed_item;
+    }
+    public Item removeFirstItem() {
+        Item removed_item = boxItems.remove(0);
+        currentCapacity -= removed_item.getSize();
+        return removed_item;
+    }
+
 }

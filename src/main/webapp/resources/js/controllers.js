@@ -6,7 +6,7 @@ sortOrderApp.controller('sortOrderCtrl', function ($scope, $http) {
         $http.get('/header')
         .success(function(data) {
             $scope.header = data;
-            var url = '/rest/order/sort/random'
+            var url = '/rest/order/sort/random/min_box'
             $http.get(url)
             .success(function(data) {
                 $scope.order = data;

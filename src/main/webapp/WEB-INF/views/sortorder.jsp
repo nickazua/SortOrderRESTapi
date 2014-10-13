@@ -37,12 +37,14 @@
                                 <th>Item Name</th>
                                 <th>Item Type</th>
                                 <th>SKU#</th>
+                                <th>Item Size</th>
                             </tr>
 
                             <tr ng-repeat="item in box.boxItems">
                                 <td>{{item.name}}</td>
                                 <td>{{item.itemType}}</td>
                                 <td>{{item.sku}}</td>
+                                <td>{{item.size}}</td>
                             </tr>
                         </table>
                     </h1>
