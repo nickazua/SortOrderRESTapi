@@ -37,32 +37,30 @@ public class Sorter {
 
         setUnboxed_items(order_items);
 
-
-
         while (!unboxed_items.isEmpty() || !remaining_items.isEmpty()) {
             if (!remaining_items.isEmpty()) {
-                returnRemainingToUnsorted();
+                moveRemaining_itemsToUnboxed_items();
             }
 
             unboxed_items = sortDescBySize(unboxed_items);
 
             while (!unboxed_items.isEmpty()) {
-                Box box = new Box();
                 boxNum++;
-                box.setBoxId(boxNum);
-                box.addItem(unboxed_items.remove(0));
 
-                int loopcount = 0;
-                while (loopcount < unboxed_items.size() && box.getCurrentCapacity() != max) {
-                    if (box.getCurrentCapacity() + unboxed_items.get(loopcount).getSize() <= max) {
-                        box.addItem(unboxed_items.remove(loopcount));
-                    } else {
-                        loopcount++;
-                    }
-                }
+//                Box box = new Box();
+//                box.addItem(unboxed_items.remove(0));
+//                int loopcount = 0;
+//                while (loopcount < unboxed_items.size() && box.getCurrentCapacity() != max) {
+//                    if (box.getCurrentCapacity() + unboxed_items.get(loopcount).getSize() <= max) {
+//                        box.addItem(unboxed_items.remove(loopcount));
+//                    } else {
+//                        loopcount++;
+//                    }
+//                }
+                Box box = fillBoxDescendingMax(unboxed_items, max);
 
                 if (box.getCurrentCapacity() != max) {
-                    clearBoxAddToUnsorted(box);
+                    moveSmallerItemsToUnboxed(box);
 
                     sortUnboxed_itemsDesc();
 
@@ -90,10 +88,11 @@ public class Sorter {
                 }
 
                 if (box.getCurrentCapacity() < max) {
-                    clearBoxAddToUnsorted(box);
                     remaining_items.add(box.removeFirstItem());
+                    moveBoxItemsToUnboxed_items(box);
                     boxNum--;
                 } else if (box.getCurrentCapacity() == max) {
+                    box.setBoxId(boxNum);
                     boxed_items.add(box);
                 }
 
@@ -103,13 +102,19 @@ public class Sorter {
         return boxed_items;
     }
 
-    public void returnRemainingToUnsorted() {
+    public void moveRemaining_itemsToUnboxed_items() {
         while (!remaining_items.isEmpty()) {
             addToUnboxed_items(remaining_items.remove(0));
         }
     }
 
-    public void clearBoxAddToUnsorted(Box box) {
+    public void moveBoxItemsToUnboxed_items(Box box) {
+        while (!box.getBoxItems().isEmpty()) {
+            addToUnboxed_items(box.removeFirstItem());
+        }
+    }
+
+    public void moveSmallerItemsToUnboxed(Box box) {
         while (box.getBoxItems().size() > 1) {
             addToUnboxed_items(box.removeLastItem());
         }
@@ -124,5 +129,21 @@ public class Sorter {
         Collections.sort(this.unboxed_items);
     }
 
+    public Box fillBoxDescendingMax(ArrayList<Item> items, int max) {
+        Box box = new Box();
+
+        box.addItem(items.remove(0));
+
+        int loopcount = 0;
+        while (loopcount < items.size() && box.getCurrentCapacity() != max) {
+            if (box.getCurrentCapacity() + items.get(loopcount).getSize() <= max) {
+                box.addItem(items.remove(loopcount));
+            } else {
+                loopcount++;
+            }
+        }
+
+        return box;
+    }
 
 }

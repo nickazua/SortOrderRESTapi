@@ -28,7 +28,6 @@ public class OrderRestController {
     public @ResponseBody Order sortedOrder(@RequestBody Order order) {
 
         order.sizeItems();
-        System.out.println("Number of items: " + order.getItems().size());
         order.boxOrder(order.sortByType());
         return order;
     }
@@ -44,7 +43,6 @@ public class OrderRestController {
         Order order =  mapper.readValue(new URL(url), Order.class);
 
         order.sizeItems();
-        System.out.println("Number of items: " + order.getItems().size());
 
         order.boxOrder(order.sortByType());
         return order;
@@ -76,6 +74,8 @@ public class OrderRestController {
         Sorter sorter = new Sorter();
         order.setBoxes(sorter.fillBoxesToMaxCapacity(order.getItems()));
         order.setNumOfBoxes(order.getBoxes().size());
+
+        System.out.println("Number of items after sort: " + order.getItems().size());
 
         return order;
     }
