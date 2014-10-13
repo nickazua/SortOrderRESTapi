@@ -57,4 +57,9 @@ public class Item implements Comparable<Item> {
         // Descending order
         return compare_size - this.size;
     }
+
+    @Override
+    public String toString() {
+        return this.getName() + " " + this.getSize();
+    }
 }
