@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Box {
     private ArrayList<Item> boxItems = new ArrayList<Item>();
     private int boxId;
-    public final int capacity = 9;
+    public static final int CAPACITY = 9;
     private int currentCapacity = 0;
 
     public ArrayList<Item> getBoxItems() {
@@ -22,10 +22,6 @@ public class Box {
 
     public void setBoxId(int boxId) {
         this.boxId = boxId;
-    }
-
-    public int getCapacity() {
-        return capacity;
     }
 
     public int getCurrentCapacity() {
