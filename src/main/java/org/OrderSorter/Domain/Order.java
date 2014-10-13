@@ -134,7 +134,7 @@ public class Order {
         for(String type : itemsByType.keySet()) {
 
             ArrayList<Item> typeItems = itemsByType.get(type);
-            int maxItems = new Box().getCapacity() / typeItems.get(0).getSize();
+            int maxItems = Box.CAPACITY / typeItems.get(0).getSize();
 
             // Creates a box and loops so long as there is space in the box
             for (int i = 0; i < typeItems.size(); i += maxItems) {
