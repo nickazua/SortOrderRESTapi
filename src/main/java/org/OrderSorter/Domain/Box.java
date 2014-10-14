@@ -48,4 +48,8 @@ public class Box {
         return removed_item;
     }
 
+    public boolean isFull() {
+        return CAPACITY == currentCapacity;
+    }
+
 }
