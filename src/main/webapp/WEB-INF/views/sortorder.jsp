@@ -9,6 +9,15 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
     <script src="/resource/js/controllers.js"></script>
+                            <script>
+                              $('#loading-example-btn').click(function () {
+                                var btn = $(this)
+                                btn.button('loading')
+                                $.ajax(...).always(function () {
+                                  btn.button('reset')
+                                });
+                              });
+                            </script>
     <title>Order</title>
     </head>
     <body>
@@ -29,7 +38,8 @@
             <div>
                 <div>
     				<a class="btn btn-danger btn-mini pull-left"
-    					ng-click="randomOrder()">Sort Random Order
+    					ng-click="randomOrder()" >
+                        Sort Random Order
     				</a>
     			</div>
 
