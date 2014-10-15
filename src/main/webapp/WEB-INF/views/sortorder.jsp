@@ -22,6 +22,9 @@
                     <p>Number of Boxes: {{order.numOfBoxes}} </p>
                 </div>
             </div>
+            <div>
+                <p ng-show="goCats">loading...</p>
+            </div>
 
             <div>
                 <div>
@@ -29,6 +32,7 @@
     					ng-click="randomOrder()">Sort Random Order
     				</a>
     			</div>
+
     			<div>
     			    <br>
     			    <h1 ng-repeat="box in order.boxes">Box {{box.boxId}}
