@@ -6,18 +6,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <link rel="stylesheet"
         href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
     <script src="/resource/js/controllers.js"></script>
-                            <script>
-                              $('#loading-example-btn').click(function () {
-                                var btn = $(this)
-                                btn.button('loading')
-                                $.ajax(...).always(function () {
-                                  btn.button('reset')
-                                });
-                              });
-                            </script>
+
     <title>Order</title>
     </head>
     <body>
@@ -31,21 +22,22 @@
                     <p>Number of Boxes: {{order.numOfBoxes}} </p>
                 </div>
             </div>
-            <div>
-                <p ng-show="goCats">loading...</p>
-            </div>
 
             <div>
                 <div>
-    				<a class="btn btn-danger btn-mini pull-left"
-    					ng-click="randomOrder()" >
-                        Sort Random Order
-    				</a>
+                    <button type="button" id="loading-example-btn" class="btn btn-primary" data-loading-text="Loading..."
+                     ng-click="randomOrder()">
+                        <div ng-show="goCats">loading...</div>
+                        <div ng-show="!goCats">Sort Random Order</div>
+    				</button>
     			</div>
 
     			<div>
-    			    <br>
-    			    <h1 ng-repeat="box in order.boxes">Box {{box.boxId}}
+                    <label><input type="checkbox" ng-model="houseware" ng-true-value="1" ng-false-value="0">Remove Housewares</label>
+    			</div>
+
+    			<div>
+                    <h1 ng-repeat="box in order.boxes">Box {{box.boxId}}
                         <table class="table table-hover">
                             <tr>
                                 <th>Item Name</th>

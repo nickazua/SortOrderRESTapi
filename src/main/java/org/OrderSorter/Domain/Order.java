@@ -173,5 +173,9 @@ public class Order {
         this.numOfBoxes = numOfBoxes;
     }
 
+    public boolean containsHousewares() {
+        
+    }
+
 
 }

@@ -7,7 +7,9 @@ sortOrderApp.controller('sortOrderCtrl', function ($scope, $http) {
         $scope.header = null;
         $scope.goCats = true;
 
-        var url = '/rest/order/sort/random/min_box'
+
+
+        var url = '/rest/order/sort/random/min_box?checked=' + $scope.houseware
         $http.get(url)
             .success(function(data) {
                 $scope.order = data;

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.net.URL;
 
 @Controller
@@ -49,14 +50,19 @@ public class OrderRestController {
     }
 
     @RequestMapping(value = "/sort/random/min_box", method = RequestMethod.GET)
-    public @ResponseBody Order sortedOrderByMinNumBoxes() throws Exception {
+    public @ResponseBody Order sortedOrderByMinNumBoxes(HttpServletRequest request) throws Exception {
 
         final String url = "https://sleepy-eyrie-4425.herokuapp.com/getOrder";
-        // This creates a JSON object mapper
+        String houseware = request.getParameter("checked");
 
+
+        // This creates a JSON object mapper
         ObjectMapper mapper = new ObjectMapper();
 
+
         Order order =  mapper.readValue(new URL(url), Order.class);
+
+
         order.sizeItems();
 
         Sorter sort = new Sorter();
