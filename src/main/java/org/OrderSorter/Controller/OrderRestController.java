@@ -53,15 +53,20 @@ public class OrderRestController {
     public @ResponseBody Order sortedOrderByMinNumBoxes(HttpServletRequest request) throws Exception {
 
         final String url = "https://sleepy-eyrie-4425.herokuapp.com/getOrder";
-        String houseware = request.getParameter("checked");
-
+        String houseware = request.getParameter("denyHouseware");
 
         // This creates a JSON object mapper
         ObjectMapper mapper = new ObjectMapper();
 
 
+
         Order order =  mapper.readValue(new URL(url), Order.class);
 
+        if (houseware.equals("1")) {
+            while (order.containsHousewares()) {
+                order =  mapper.readValue(new URL(url), Order.class);
+            }
+        }
 
         order.sizeItems();
 
@@ -73,15 +78,20 @@ public class OrderRestController {
     }
 
     @RequestMapping(value = "/sort/min_box", method = RequestMethod.POST)
-    public @ResponseBody Order sortedOrderByMinNumBoxes(@RequestBody Order order) {
-        order.sizeItems();
-        System.out.println("Number of items: " + order.getItems().size());
+    public @ResponseBody Order sortedOrderByMinNumBoxes(@RequestBody Order order, HttpServletRequest request) {
 
-        Sorter sorter = new Sorter();
-        order.setBoxes(sorter.fillBoxesToMaxCapacity(order.getItems()));
-        order.setNumOfBoxes(order.getBoxes().size());
+        String houseware = request.getParameter("denyHouseware");
+        if (houseware == null) {
+            houseware = "0";
+        }
 
-        System.out.println("Number of items after sort: " + order.getItems().size());
+        if ((houseware.equals("1") && !order.containsHousewares()) || houseware.equals("0")) {
+                order.sizeItems();
+
+                Sorter sorter = new Sorter();
+                order.setBoxes(sorter.fillBoxesToMaxCapacity(order.getItems()));
+                order.setNumOfBoxes(order.getBoxes().size());
+        }
 
         return order;
     }
