@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Box {
     private ArrayList<Item> boxItems = new ArrayList<Item>();
     private int boxId;
-    private int capacity = 9;
-    private int currentCapacity = capacity;
+    public static final int CAPACITY = 9;
+    private int currentCapacity = 0;
 
     public ArrayList<Item> getBoxItems() {
         return boxItems;
@@ -24,14 +24,6 @@ public class Box {
         this.boxId = boxId;
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-
     public int getCurrentCapacity() {
         return currentCapacity;
     }
@@ -42,6 +34,22 @@ public class Box {
 
     public void addItem(Item item) {
         boxItems.add(item);
-        currentCapacity -= item.getSize();
+        currentCapacity += item.getSize();
     }
+
+    public Item removeLastItem() {
+        Item removed_item = boxItems.remove(boxItems.size() - 1);
+        currentCapacity -= removed_item.getSize();
+        return removed_item;
+    }
+    public Item removeFirstItem() {
+        Item removed_item = boxItems.remove(0);
+        currentCapacity -= removed_item.getSize();
+        return removed_item;
+    }
+
+    public boolean isFull() {
+        return CAPACITY == currentCapacity;
+    }
+
 }

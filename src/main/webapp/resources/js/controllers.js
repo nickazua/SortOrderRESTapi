@@ -3,17 +3,25 @@ var sortOrderApp = angular.module('sortOrderApp', []);
 sortOrderApp.controller('sortOrderCtrl', function ($scope, $http) {
 
     $scope.randomOrder = function() {
-        $http.get('/header')
-        .success(function(data) {
-            $scope.header = data;
+        $scope.order = null;
+        $scope.header = null;
+        $scope.goCats = true;
 
-            $http.post('/rest/order/random')
+        var url = '/rest/order/sort/random/min_box?denyHouseware=' + $scope.houseware
+        $http.get(url)
             .success(function(data) {
-                $http.post('/rest/order/sort', data)
+                $scope.order = data;
+                $http.get('/header')
                 .success(function(data) {
-                    $scope.order = data;
+                    $scope.header = data;
+                    $scope.goCats = false;
                 })
-            })
+            .error(function (e) {
+                alert("error: " + e);
+                callback(e);
+            });
         });
-    };
+    }
+    $scope.goCats = false;
+
 });

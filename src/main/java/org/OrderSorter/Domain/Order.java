@@ -1,6 +1,7 @@
 package org.OrderSorter.Domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -10,6 +11,9 @@ public class Order {
     private ArrayList<Item> items = new ArrayList<Item>();
     private ArrayList<Box> boxes = new ArrayList<Box>();
     private int numOfBoxes = 0;
+    private int orderNumber = 0;
+
+
 
     public Order() {
     }
@@ -38,6 +42,14 @@ public class Order {
         this.boxes = boxes;
     }
 
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(int orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
     public void randomizeOrder() {
 
         int num_items = 1 + (int)(Math.random() * 50);
@@ -45,7 +57,7 @@ public class Order {
                 {"Shoes", "shoes", "1234567"},
                 {"Heels", "shoes", "1224567"},
                 {"Eye liner", "beauty", "3124567"},
-                {"Accessory", "accessory", "4123567"},
+                {"Accessory", "accessories", "4123567"},
                 {"Blender", "housewares", "5123467"},
                 {"Handbag", "bags", "4345746"},
                 {"beanie", "hats", "5345746"}
@@ -80,50 +92,43 @@ public class Order {
         return itemsByType;
     }
 
+    public ArrayList<Item> sortDescBySize() {
+        ArrayList<Item> sorted_items = this.items;
+
+        Collections.sort(sorted_items);
+
+        for (Item i : sorted_items) {
+            System.out.println(i.getName() + " " + i.getSize());
+        }
+
+        return sorted_items;
+
+    }
+
     public void sizeItems() {
         for (Item item : this.getItems()) {
             String itemType = item.getItemType().toLowerCase();
 
-            if (itemType.equals("shoes") || itemType.equals("bags")) {
+//            if (itemType.equals("shoes") || itemType.equals("bags")) {
+            if (itemType.equals("shoes")) {
                 item.setSize(3);
 
             } else if (itemType.equals("hats") || itemType.equals("clothing") ||itemType.equals("beauty")) {
                 item.setSize(2);
 
-            } else if (itemType.equals("accessory")) {
+            } else if (itemType.equals("accessories")) {
                 item.setSize(1);
 
             } else if (itemType.equals("housewares")) {
                 item.setSize(5);
 
+            } else if (itemType.equals("bags")) {
+                item.setSize(4);
             }
 
         }
     }
 
-    public int maxItems(String type) {
-        int maxItems = 0;
-
-        if ( type.equals("housewares") )
-        {
-            maxItems = 1;
-        }
-        else if ( type.equals("shoes") || type.equals("bags") )
-        {
-            maxItems = 3;
-        }
-        else if ( type.equals("hats") || type.equals("clothing") || type.equals("beauty") )
-        {
-            maxItems = 4;
-        }
-        else if ( type.equals("accessory") )
-        {
-            maxItems = 9;
-        }
-
-
-        return maxItems;
-    }
 
     public void boxOrder(HashMap<String,ArrayList<Item>> itemsByType) {
 //       ArrayList<Box> boxes = new ArrayList<Box>();
@@ -132,7 +137,7 @@ public class Order {
         for(String type : itemsByType.keySet()) {
 
             ArrayList<Item> typeItems = itemsByType.get(type);
-            int maxItems = new Box().getCapacity() / typeItems.get(0).getSize();
+            int maxItems = Box.CAPACITY / typeItems.get(0).getSize();
 
             // Creates a box and loops so long as there is space in the box
             for (int i = 0; i < typeItems.size(); i += maxItems) {
@@ -153,7 +158,7 @@ public class Order {
 
         }
         setNumOfBoxes(boxNum);
-        System.out.println(numOfBoxes);
+        System.out.println("Number of boxes: " + numOfBoxes);
 
 //        HashMap<String, ArrayList<Box>> mapBoxes = new HashMap<String, ArrayList<Box>>();
 //        mapBoxes.put("boxes", boxes);
@@ -167,4 +172,19 @@ public class Order {
     public void setNumOfBoxes(int numOfBoxes) {
         this.numOfBoxes = numOfBoxes;
     }
+
+    public boolean containsHousewares() {
+        boolean hasHouseware = false;
+
+        for (Item i: this.getItems()) {
+            if (i.getItemType().equals("housewares")) {
+                hasHouseware = true;
+                break;
+            }
+        }
+
+        return hasHouseware;
+    }
+
+
 }
