@@ -173,5 +173,18 @@ public class Order {
         this.numOfBoxes = numOfBoxes;
     }
 
+    public boolean containsHousewares() {
+        boolean hasHouseware = false;
+
+        for (Item i: this.getItems()) {
+            if (i.getItemType().equals("housewares")) {
+                hasHouseware = true;
+                break;
+            }
+        }
+
+        return hasHouseware;
+    }
+
 
 }
