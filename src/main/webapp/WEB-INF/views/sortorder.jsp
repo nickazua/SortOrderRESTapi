@@ -6,11 +6,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <link rel="stylesheet" type="text/css" href="/resource/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/resource/bootstrap/css/style.css">
+    <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
     <script src="/resource/js/controllers.js"></script>
 
     <title>Order</title>
-
     <title>Zappos Warehouse Order Sorter Program</title>
     </head>
     <body>
@@ -24,28 +24,27 @@
             </button>
             <div class="collapse navbar-collapse navHeaderCollapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">View Order</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#viewOrder">View Order</a></li>
+                    <li><a href="#siteManager">Site Manager</a></li>
+                    <li><a href="#weather">Weather</a></li>
+                    <li><a href="#tetris">Tetris</a></li>
                 </ul>
             </div>
         </div>
+    </div>
+    <div class="scroll-top-wrapper ">
+        <span class="scroll-top-inner">
+            <i class="fa fa-2x fa-arrow-circle-up"></i>
+        </span>
     </div>
     <section class="sortOrder" ng-app="sortOrderApp">
     	<div ng-controller="sortOrderCtrl">
             <div class="jumbotron">
             </div>
-            <div class="container" id="contact">
-                <h1>Name: {{header.nameGen}} </h1>
-                <p>Order Number:  {{order.orderNumber}} </p>
-                <p>Number of Boxes: {{order.numOfBoxes}} </p>
-            </div>
             <div>
                 <div class="row padding">
-                    <div class="form-group">
-                        <div class=".col-md-4">
-                            <button type="button" class="btn btn-success btn-lg"
+                        <div class=".col-md-2">
+                            <button type="button" class="btn btn-primary btn-lg"
                                 ng-click="randomOrder()">
                                 <div ng-show="goCats">loading...</div>
                                 <div ng-show="!goCats">Sort Random Order</div>
@@ -54,7 +53,13 @@
                                 <label><input type="checkbox"> Remove Housewares</label>
                             </div>
                         </div>
-                    </div>
+                        <div class=".col-md-8">
+                            <div class="container" id="viewOrder">
+                                <h1>Name: {{header.nameGen}} </h1>
+                                    <p>Order Number:  {{order.orderNumber}} </p>
+                                    <p>Number of Boxes: {{order.numOfBoxes}} </p>
+                            </div>
+                        </div>
                 </div>
             <div>
     		<div>
@@ -86,14 +91,11 @@
     		    </div>
     		</div>
         </div>
-        <div class="footer">
-            <div class="container">
-                <footer><a href="#home">Back to top</a></footer>
+            <div class="footer">
+                <div class="container">
+                </div>
             </div>
-        </div>
     </section>
-
-
 
 
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -113,6 +115,37 @@
         }
       });
     });
+    </script>
+    <script>
+    $(function(){
+        $(document).on( 'scroll', function(){
+            if ($(window).scrollTop() > 100) {
+                $('.scroll-top-wrapper').addClass('show');
+            } else {
+                $('.scroll-top-wrapper').removeClass('show');
+            }
+        });
+    });
+    </script>
+    <script>
+    $(function(){
+        $(document).on( 'scroll', function(){
+            if ($(window).scrollTop() > 100) {
+                $('.scroll-top-wrapper').addClass('show');
+            } else {
+                $('.scroll-top-wrapper').removeClass('show');
+            }
+        });
+
+        $('.scroll-top-wrapper').on('click', scrollToTop);
+    });
+    function scrollToTop() {
+        verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+        element = $('body');
+        offset = element.offset();
+        offsetTop = offset.top;
+        $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+    }
     </script>
     </body>
 </html>
