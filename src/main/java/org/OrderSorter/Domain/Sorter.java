@@ -4,146 +4,53 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Sorter {
-    private ArrayList<Item> unboxed_items;
-    private ArrayList<Item> remaining_items;
 
     public Sorter() {
-        remaining_items = new ArrayList<Item>();
-    }
-    public ArrayList<Item> getUnboxed_items() {
-        return unboxed_items;
+
     }
 
-    public void setUnboxed_items(ArrayList<Item> unboxed_items) {
-        this.unboxed_items = new ArrayList<Item>(unboxed_items);
-    }
+    public ArrayList<Box> fillBoxesToMaxCapacity(ArrayList<Item> orderItems) {
+        ArrayList<Box> boxList = new ArrayList<Box>(); // make a list of boxes
 
-    public ArrayList<Item> getRemaining_items() {
-        return remaining_items;
-    }
+        // sort the items by their size in descending order
+        sortDescBySize(orderItems);
 
-    public void setRemaining_items(ArrayList<Item> remaining_items) {
-        this.remaining_items = remaining_items;
-    }
+        // make a new list for items that we put in boxes
+        ArrayList<Item> itemsAdded = new ArrayList<Item>();
 
-    public void addToUnboxed_items(Item item) {
-        this.unboxed_items.add(item);
-    }
+        int boxNum = 1; // start with box 1
 
-    public ArrayList<Box> fillBoxesToMaxCapacity(ArrayList<Item> order_items) {
-        ArrayList<Box> boxed_items = new ArrayList<Box>();
-        int boxNum = 0;
-        int max = Box.CAPACITY;
+        // while there are still items left to place in boxes...
+        while (itemsAdded.size() != orderItems.size()) {
+            Box currentBox = new Box();
+            currentBox.setBoxId(boxNum);
 
-        setUnboxed_items(order_items);
+            int boxCapacity = Box.CAPACITY;
 
-        while (!unboxed_items.isEmpty() || !remaining_items.isEmpty()) {
-            moveRemaining_itemsToUnboxed_items();
-
-            while (!unboxed_items.isEmpty()) {
-
-                boxNum++;
-                sortUnboxed_itemsDesc();
-                // Fill box in with the largest possible items
-                Box box = fillBoxDescendingMax(unboxed_items, max);
-
-                // if box isn't full with largest possible return those items
-                // and attempt to sort it with the largest, then smallest, then largest, and so on
-                if (!box.isFull() && !unboxed_items.isEmpty()) {
-                    moveSmallerItemsToUnboxed(box);
-                    sortUnboxed_itemsDesc();
-                    box = fillBoxAlternatingLargeSmall(box, unboxed_items, max);
+            // try to fit every item in this box
+            for (Item currentItem : orderItems) {
+                if (itemsAdded.contains(currentItem)) { // has this item been added already?
+                    continue; // skip this item, it's already been added to a box
                 }
 
-                // if box still not full store largest item in remaining
-                // and return any other items back to unboxed
-                if (box.getCurrentCapacity() < max) {
-                    moveSmallerItemsToUnboxed(box);
-                    remaining_items.add(box.removeFirstItem());
-                    boxNum--;
-                }
-                // if full store box
-                else if (box.getCurrentCapacity() == max) {
-                    box.setBoxId(boxNum);
-                    boxed_items.add(box);
+                int currentItemSize = currentItem.getSize(); // get item size
+
+                if (currentItemSize <= boxCapacity) { // does the item fit in the box?
+                    currentBox.addItem(currentItem); // Add item to box
+                    boxCapacity = boxCapacity - currentItemSize; // Remove item size from box capacity
+                    itemsAdded.add(currentItem); // add item to the list of items in boxes so it's not added again
                 }
             }
-            max--;
-        }
-        return boxed_items;
-    }
 
-    public void moveRemaining_itemsToUnboxed_items() {
-        while (!remaining_items.isEmpty()) {
-            addToUnboxed_items(remaining_items.remove(0));
+            boxList.add(currentBox);
+            boxNum++;
         }
-    }
 
-    public void moveBoxItemsToUnboxed_items(Box box) {
-        while (!box.getBoxItems().isEmpty()) {
-            addToUnboxed_items(box.removeFirstItem());
-        }
-    }
-
-    public void moveSmallerItemsToUnboxed(Box box) {
-        while (box.getBoxItems().size() > 1) {
-            addToUnboxed_items(box.removeLastItem());
-        }
+        return boxList;
     }
 
     public ArrayList<Item> sortDescBySize(ArrayList<Item> items) {
         Collections.sort(items);
         return items;
     }
-
-    public void sortUnboxed_itemsDesc() {
-        Collections.sort(this.unboxed_items);
-    }
-
-    public Box fillBoxDescendingMax(ArrayList<Item> items, int max) {
-        Box box = new Box();
-
-        box.addItem(items.remove(0));
-
-        int loopcount = 0;
-        while (loopcount < items.size() && box.getCurrentCapacity() != max) {
-            if (checkFitItemBox(box, max, loopcount)) {
-                box.addItem(items.remove(loopcount));
-            } else {
-                loopcount++;
-            }
-        }
-
-        return box;
-    }
-
-    public Box fillBoxAlternatingLargeSmall(Box box, ArrayList<Item> items, int max) {
-        int small_loop = items.size() - 1;
-        int big_loop = 0;
-
-        while (small_loop >= 0 && items.size() != 0 && !box.isFull()) {
-            if (checkFitItemBox(box, max, small_loop)) {
-                box.addItem(items.remove(small_loop));
-
-                while (big_loop < items.size() && !box.isFull()) {
-                    if (checkFitItemBox(box, max, big_loop)) {
-                        box.addItem(items.remove(big_loop));
-                        big_loop--;
-                        small_loop--;
-                    }
-                    big_loop++;
-                }
-            }
-            small_loop--;
-        }
-        return box;
-    }
-
-    public boolean checkFitItemBox(Box box, int max, int item_position) {
-        if (box.getCurrentCapacity() + unboxed_items.get(item_position).getSize() <= max) {
-            return true;
-        }
-        return false;
-    }
-
 }
