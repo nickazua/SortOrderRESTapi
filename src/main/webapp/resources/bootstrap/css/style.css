@@ -6,12 +6,16 @@ font-size: 14px;
 line-height: 1.42857;
 }
 
+.jumbotron {
+height:120px;
+}
+
 .navbar-static-top {
 background:#000033;
 }
 
 .navbar-brand {
-padding:10px;
+padding:70px;
 }
 
 .navbar-nav {
@@ -45,15 +49,10 @@ h1 {
 font-size: 20px;
 }
 
-p1 {
-font-size: 30px;
-}
-
-p2 {
+p {
 font-size: 20px;
+margin: 0 0 -1px;
 }
-
-
 
 .scroll-top-wrapper {
 position: fixed;
@@ -96,9 +95,10 @@ line-height: inherit;
 background-color: #428bca;
 border-color: #357ebd;
 color: #fff;
-height:70px;
+height:80px;
 width:330px;
 }
+
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
 background-color: #3071a9;
 border-color: #285e8e;

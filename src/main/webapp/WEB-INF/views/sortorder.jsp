@@ -17,7 +17,7 @@
     <div class="navbar-static-top navbar-inverse navbar-fixed-top" role="navigation" id="home">
         <div class="container">
             <div class="navbar-brand">
-                <img src="/resource/bootstrap/images/zapposLogoBlue.png" img-responsive img-left" alt="logo"/>
+                <img src="/resource/bootstrap/images/zapposLogoBlue.png" img-responsive img-left alt="logo"/>
             </div>
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                 Menu
@@ -41,8 +41,8 @@
             </div>
             <div>
                 <br>
-                    <div class="row padding">
-                        <div class="col-md-3">
+                    <div class="row ">
+                        <div class="col-md-4">
                         <button type="button" class="btn btn-primary btn-lg" id="viewOrder"
                             ng-click="randomOrder()">
                             <div ng-show="goCats">loading...</div>
@@ -52,12 +52,10 @@
                                 <label><input type="checkbox" ng-model="houseware" ng-true-value="1" ng-false-value="0">Remove Housewares</label>
                             </div>
                         </div>
-                        <div class="col-md-8">
-                            <div class="container">
+                        <div class="col-md-6">
                                 <p>Order Number:  {{order.orderNumber}} </p>
                                 <p>Customer Name: {{header.nameGen}} </p>
                                 <p>Number of Boxes: {{order.numOfBoxes}} </p>
-                            </div>
                         </div>
                     </div>
                 </br>
@@ -67,17 +65,16 @@
     			    <div class="row" ng-repeat="box in order.boxes">
     			        <div class="col-md-2">
     			            <h1 ng-click="boxview=!boxview">Box {{box.boxId}}</h1>
-
                         </div>
 
                             <div ng-show="boxview">
                                 <div class="col-md-8 padding">
                                     <table class="table table-hover">
                                         <tr ng-click="viewable=!viewable">
-                                            <th>Item Name</th>
-                                            <th>Item Type</th>
-                                            <th>SKU#</th>
-                                            <th>Item Size</th>
+                                            <th class="col-md-4">Item Name</th>
+                                            <th class="col-md-3">Item Type</th>
+                                            <th class="col-md-2">SKU#</th>
+                                            <th class="col-md-3">Item Size</th>
                                         </tr>
                                         <tr ng-repeat="item in box.boxItems" ng-show="viewable">
                                             <td class="col-md-4">{{item.name}}</td>
