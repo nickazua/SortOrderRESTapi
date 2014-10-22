@@ -1,0 +1,140 @@
+body {
+background-color: #e0e0ff;
+color: #333;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size: 14px;
+line-height: 1.42857;
+}
+
+.jumbotron {
+height:120px;
+}
+
+.navbar-static-top {
+background:#000033;
+}
+
+.navbar-brand {
+padding:70px;
+}
+
+.navbar-nav {
+color:#a8e0f8;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+color: #a0b1e8;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+background-color: transparent;
+color: #ffffff;
+}
+
+.navbar-inverse .navbar-toggle {
+border-color: #a0b1e8;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+background-color: #000000;
+}
+
+button, input, optgroup, select, textarea {
+color: #a0b1e8;
+font: inherit;
+margin: 0;
+}
+
+h1 {
+font-size: 20px;
+}
+
+p {
+font-size: 20px;
+margin: 0 0 -1px;
+}
+
+.scroll-top-wrapper {
+position: fixed;
+opacity: 0;
+visibility: hidden;
+overflow: hidden;
+text-align: center;
+z-index: 99999999;
+background-color: #000000;
+color: #eeeeee;
+width: 50px;
+height: 48px;
+line-height: 48px;
+right: 30px;
+bottom: 30px;
+padding-top: 2px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px;
+-webkit-transition: all 0.5s ease-in-out;
+-moz-transition: all 0.5s ease-in-out;
+-ms-transition: all 0.5s ease-in-out;
+-o-transition: all 0.5s ease-in-out;
+transition: all 0.5s ease-in-out;
+}
+.scroll-top-wrapper:hover {
+background-color: #888888;
+}
+.scroll-top-wrapper.show {
+visibility:visible;
+cursor:pointer;
+opacity: 1.0;
+}
+.scroll-top-wrapper i.fa {
+line-height: inherit;
+}
+
+.btn-primary {
+background-color: #428bca;
+border-color: #357ebd;
+color: #fff;
+height:80px;
+width:330px;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+background-color: #3071a9;
+border-color: #285e8e;
+color: #fff;
+}
+
+.table {
+width: 70%;
+max-width: 70%;
+margin-bottom: 20px;
+}
+
+.row {
+padding-left:100px;
+}
+
+.padding {
+padding-top:20px;
+padding-bottom:20px;
+}
+
+.siteManager{
+width:100%;
+height:4800px;
+background:url('/resource/bootstrap/images/zapposSMOrder.png') no-repeat center center;
+}
+
+.footer{
+width:100%;
+height:150px;
+background:url('/resource/bootstrap/images/footer.jpg');
+padding: 50 0 50 0;
+text-align:right;
+}
+
+//add a date on top, clock, temps local info etc
+//make name smaller, order# and number of boxes bigger
+//Sort button to right of name, order and box#
+
