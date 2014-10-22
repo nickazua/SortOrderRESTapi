@@ -7,6 +7,7 @@ sortOrderApp.controller('sortOrderCtrl', function ($scope, $http) {
         $scope.header = null;
         $scope.goCats = true;
         $scope.viewable = true;
+        $scope.boxview = true;
 
         var url = '/rest/order/sort/random/min_box?denyHouseware=' + $scope.houseware
         $http.get(url)

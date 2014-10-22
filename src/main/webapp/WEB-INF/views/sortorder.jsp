@@ -66,26 +66,29 @@
                 <br>
     			    <div class="row" ng-repeat="box in order.boxes">
     			        <div class="col-md-2">
-    			            <h1>Box {{box.boxId}}</h1>
-    			            <img src="/resource/bootstrap/images/zapposBox.png" alt="box"/>
+    			            <h1 ng-click="boxview=!boxview">Box {{box.boxId}}</h1>
+
                         </div>
 
-                        <div class="col-md-8 padding">
-                            <table class="table table-hover">
-                                <tr ng-click="viewable=!viewable">
-                                    <th>Item Name</th>
-                                    <th>Item Type</th>
-                                    <th>SKU#</th>
-                                    <th>Item Size</th>
-                                </tr>
-                                <tr ng-repeat="item in box.boxItems" ng-show="viewable">
-                                    <td class="col-md-4">{{item.name}}</td>
-                                    <td class="col-md-3">{{item.itemType}}</td>
-                                    <td class="col-md-2">{{item.sku}}</td>
-                                    <td class="col-md-3">{{item.size}}</td>
-                                </tr>
-                            </table>
-                        </div>
+                            <div ng-show="boxview">
+                                <div class="col-md-8 padding">
+                                    <table class="table table-hover">
+                                        <tr ng-click="viewable=!viewable">
+                                            <th>Item Name</th>
+                                            <th>Item Type</th>
+                                            <th>SKU#</th>
+                                            <th>Item Size</th>
+                                        </tr>
+                                        <tr ng-repeat="item in box.boxItems" ng-show="viewable">
+                                            <td class="col-md-4">{{item.name}}</td>
+                                            <td class="col-md-3">{{item.itemType}}</td>
+                                            <td class="col-md-2">{{item.sku}}</td>
+                                            <td class="col-md-3">{{item.size}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
                     </div>
     		    </div>
     		</div>
