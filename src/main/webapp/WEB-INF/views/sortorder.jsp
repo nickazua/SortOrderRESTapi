@@ -69,15 +69,16 @@
     			            <h1>Box {{box.boxId}}</h1>
     			            <img src="/resource/bootstrap/images/zapposBox.png" alt="box"/>
                         </div>
+
                         <div class="col-md-8 padding">
                             <table class="table table-hover">
-                                <tr>
+                                <tr ng-click="viewable=!viewable">
                                     <th>Item Name</th>
                                     <th>Item Type</th>
                                     <th>SKU#</th>
                                     <th>Item Size</th>
                                 </tr>
-                                    <tr ng-repeat="item in box.boxItems">
+                                <tr ng-repeat="item in box.boxItems" ng-show="viewable">
                                     <td class="col-md-4">{{item.name}}</td>
                                     <td class="col-md-3">{{item.itemType}}</td>
                                     <td class="col-md-2">{{item.sku}}</td>
