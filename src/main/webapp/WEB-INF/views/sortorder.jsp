@@ -14,7 +14,7 @@
     <title>Zappos Warehouse Order Sorter Program</title>
     </head>
     <body>
-    <div class="navbar-static-top navbar-inverse" id="home">
+    <div class="navbar-static-top navbar-inverse navbar-fixed-top" role="navigation" id="home">
         <div class="container">
             <div class="navbar-brand">
                 <img src="/resource/bootstrap/images/zapposLogoBlue.png" img-responsive img-left" alt="logo"/>
@@ -26,8 +26,6 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#viewOrder">View Order</a></li>
                     <li><a href="#siteManager">Site Manager</a></li>
-                    <li><a href="#weather">Weather</a></li>
-                    <li><a href="#tetris">Tetris</a></li>
                 </ul>
             </div>
         </div>
@@ -39,39 +37,39 @@
     </div>
     <section class="sortOrder" ng-app="sortOrderApp">
     	<div ng-controller="sortOrderCtrl">
-            <div class="jumbotron">
+            <div class="jumbotron padding">
             </div>
             <div>
-                <div class="row padding">
-                        <div class=".col-md-2">
-                            <button type="button" class="btn btn-primary btn-lg"
-                                ng-click="randomOrder()">
-                                <div ng-show="goCats">loading...</div>
-                                <div ng-show="!goCats">Sort Random Order</div>
-                            </button>
+                <br>
+                    <div class="row padding">
+                        <div class="col-md-3">
+                        <button type="button" class="btn btn-primary btn-lg" id="viewOrder"
+                            ng-click="randomOrder()">
+                            <div ng-show="goCats">loading...</div>
+                            <div ng-show="!goCats">Sort Random Order</div>
+                        </button>
                             <div class="checkbox">
                                 <label><input type="checkbox"> Remove Housewares</label>
                             </div>
                         </div>
-                        <div class=".col-md-8">
-                            <div class="container" id="viewOrder">
-                                <h1>Name: {{header.nameGen}} </h1>
-                                    <p>Order Number:  {{order.orderNumber}} </p>
-                                    <p>Number of Boxes: {{order.numOfBoxes}} </p>
+                        <div class="col-md-8">
+                            <div class="container">
+                                <p>Order Number:  {{order.orderNumber}} </p>
+                                <p>Customer Name: {{header.nameGen}} </p>
+                                <p>Number of Boxes: {{order.numOfBoxes}} </p>
                             </div>
                         </div>
-                </div>
-            <div>
+                    </div>
+                </br>
+            </div>
     		<div>
                 <br>
     			    <div class="row" ng-repeat="box in order.boxes">
-    			        <div class='col-md-1'>
+    			        <div class="col-md-2">
     			            <h1>Box {{box.boxId}}</h1>
+    			            <img src="/resource/bootstrap/images/zapposBox.png" alt="box"/>
                         </div>
-                        <div class="col-md-2">
-                            <img src="/resource/bootstrap/images/zapposBox.png" alt="box"/>
-                        </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 padding">
                             <table class="table table-hover">
                                 <tr>
                                     <th>Item Name</th>
@@ -80,10 +78,10 @@
                                     <th>Item Size</th>
                                 </tr>
                                     <tr ng-repeat="item in box.boxItems">
-                                    <td>{{item.name}}</td>
-                                    <td>{{item.itemType}}</td>
-                                    <td>{{item.sku}}</td>
-                                    <td>{{item.size}}</td>
+                                    <td class="col-md-4">{{item.name}}</td>
+                                    <td class="col-md-3">{{item.itemType}}</td>
+                                    <td class="col-md-2">{{item.sku}}</td>
+                                    <td class="col-md-3">{{item.size}}</td>
                                 </tr>
                             </table>
                         </div>
@@ -91,6 +89,10 @@
     		    </div>
     		</div>
         </div>
+            <div class="siteManager padding" id="siteManager">
+                <div class="container">
+                </div>
+            </div>
             <div class="footer">
                 <div class="container">
                 </div>
@@ -136,7 +138,6 @@
                 $('.scroll-top-wrapper').removeClass('show');
             }
         });
-
         $('.scroll-top-wrapper').on('click', scrollToTop);
     });
     function scrollToTop() {
