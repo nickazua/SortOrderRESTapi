@@ -64,9 +64,8 @@
                 <br>
     			    <div class="row" ng-repeat="box in order.boxes">
     			        <div class="col-md-2">
-    			            <h1 ng-click="boxview=!boxview">Box {{box.boxId}}</h1>
+    			            <h1 ng-click="boxview=!boxview"><i class="glyphicon glyphicon-expand" ng-show="!boxview"></i><i class="glyphicon glyphicon-collapse-down" ng-show="boxview"></i>  Box {{box.boxId}}</h1>
                         </div>
-
                             <div ng-show="boxview">
                                 <div class="col-md-8 padding">
                                     <table class="table table-hover">
@@ -85,7 +84,6 @@
                                     </table>
                                 </div>
                             </div>
-
                     </div>
     		    </div>
     		</div>
