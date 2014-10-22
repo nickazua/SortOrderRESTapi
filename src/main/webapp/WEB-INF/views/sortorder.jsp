@@ -49,7 +49,7 @@
                             <div ng-show="!goCats">Sort Random Order</div>
                         </button>
                             <div class="checkbox">
-                                <label><input type="checkbox"> Remove Housewares</label>
+                                <label><input type="checkbox" ng-model="houseware" ng-true-value="1" ng-false-value="0">Remove Housewares</label>
                             </div>
                         </div>
                         <div class="col-md-8">
