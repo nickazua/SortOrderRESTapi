@@ -33,6 +33,7 @@
                         <div class="col-md-4 paddingRow" class="collapse navbar-collapse navHeaderCollapse">
                             <ul class="nav navbar-nav navbar-left">
                                 <li><a href="#siteManager">Site Manager</a></li>
+                                <li><a href="#inspirational">Inspirational Images</a></li>
                             </ul>
                         </div>
                     </div>
@@ -45,16 +46,8 @@
                     </div>
                 </br>
             </div>
-
-
-
             <div class="jumbotron">
             </div>
-
-
-
-
-
             <div class="scroll-top-wrapper ">
                 <span class="scroll-top-inner">
                     <i class="fa fa-2x fa-arrow-circle-up"></i>
@@ -88,13 +81,14 @@
     		    </div>
     		</div>
         </div>
-
-
-
         <div class="siteManager paddingSM" id="siteManager">
             <div class="container">
             </div>
         </div>
+        <div class="heroImage" id="inspirational">
+            <img src="/resource/bootstrap/images/heroImageOne.jpg" class="img-responsive" />
+        </div>
+
         <div class="footer">
             <div class="container">
             </div>

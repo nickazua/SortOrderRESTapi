@@ -108,6 +108,12 @@ height:4800px;
 background:url('/resource/bootstrap/images/zapposSMOrder.png') no-repeat center center;
 }
 
+.heroImage {
+width:100%;
+height:610px;
+padding: 0;
+}
+
 .footer {
 width:100%;
 height:150px;
