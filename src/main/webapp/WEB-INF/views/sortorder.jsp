@@ -33,7 +33,7 @@
                         <div class="col-md-4 paddingRow" class="collapse navbar-collapse navHeaderCollapse">
                             <ul class="nav navbar-nav navbar-left">
                                 <li><a href="#siteManager">Site Manager</a></li>
-                                <li><a href="#inspirational">Inspirational Images</a></li>
+                                <li><a href="#inspirational">Messages</a></li>
                             </ul>
                         </div>
                     </div>
