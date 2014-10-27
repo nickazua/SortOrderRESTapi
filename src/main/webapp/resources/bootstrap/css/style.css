@@ -20,6 +20,7 @@ color: #a0b1e8;
 height:120px;
 }
 
+/* Type */
 
 h1 {
 font-size: 20px;
@@ -32,20 +33,7 @@ color: #a0b1e8;
 padding-left: 60px;
 }
 
-
-.btn-primary {
-background-color: #428bca;
-border-color: #357ebd;
-color: #fff;
-height:80px;
-width:330px;
-}
-
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-background-color: #3071a9;
-border-color: #285e8e;
-color: #fff;
-}
+/* Sort Order button */
 
 .button {
 position: absolute; width: 300px; left: 50%; margin-left: -150px;
@@ -77,6 +65,8 @@ left: 50%; margin-left: -150px;
 color: #a0b1e8;
 }
 
+/* Table and Row */
+
 .table {
 width: 70%;
 max-width: 70%;
@@ -87,6 +77,8 @@ margin-bottom: 20px;
 padding-left:100px;
 padding-right:100px;
 }
+
+/* Various types of padding */
 
 .padding {
 padding-top:20px;
@@ -100,6 +92,8 @@ padding-top:10px;
 .paddingSM {
 padding-top:500px;
 }
+
+/* SM and Footer */
 
 .siteManager {
 paddint-top:5000px;
@@ -122,9 +116,7 @@ padding: 50 0 50 0;
 text-align:right;
 }
 
-
 /* Scroll button */
-
 
 .scroll-top-wrapper {
 position: fixed;
