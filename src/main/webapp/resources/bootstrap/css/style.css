@@ -33,6 +33,13 @@ color: #a0b1e8;
 padding-left: 60px;
 }
 
+p1 {
+font-size: 20px;
+margin: 0 0 -1px;
+color: #ffffff;
+padding-left: 60px;
+}
+
 /* Sort Order button */
 
 .button {

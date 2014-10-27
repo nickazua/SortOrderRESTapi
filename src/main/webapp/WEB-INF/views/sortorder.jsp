@@ -28,7 +28,7 @@
                         <div class="col-md-4 paddingRow">
                             <p>Order Number:  {{order.orderNumber}} </p>
                             <p>Customer Name: {{header.nameGen}} </p>
-                            <p>Number of Boxes: {{order.numOfBoxes}} </p>
+                            <p1>Number of Boxes: {{order.numOfBoxes}} </p>
                         </div>
                         <div class="col-md-4 paddingRow" class="collapse navbar-collapse navHeaderCollapse">
                             <ul class="nav navbar-nav navbar-left">
