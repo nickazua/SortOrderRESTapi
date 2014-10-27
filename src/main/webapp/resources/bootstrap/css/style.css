@@ -6,44 +6,20 @@ font-size: 14px;
 line-height: 1.42857;
 }
 
-.jumbotron {
-height:120px;
-}
+/* Header */
 
 .navbar-static-top {
 background:#000033;
-}
-
-.navbar-brand {
-padding:70px;
-}
-
-.navbar-nav {
-color:#a8e0f8;
 }
 
 .navbar-inverse .navbar-nav > li > a {
 color: #a0b1e8;
 }
 
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-background-color: transparent;
-color: #ffffff;
+.jumbotron {
+height:120px;
 }
 
-.navbar-inverse .navbar-toggle {
-border-color: #a0b1e8;
-}
-
-.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
-background-color: #000000;
-}
-
-button, input, optgroup, select, textarea {
-color: #a0b1e8;
-font: inherit;
-margin: 0;
-}
 
 h1 {
 font-size: 20px;
@@ -52,7 +28,97 @@ font-size: 20px;
 p {
 font-size: 20px;
 margin: 0 0 -1px;
+color: #a0b1e8;
+padding-left: 60px;
 }
+
+
+.btn-primary {
+background-color: #428bca;
+border-color: #357ebd;
+color: #fff;
+height:80px;
+width:330px;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+background-color: #3071a9;
+border-color: #285e8e;
+color: #fff;
+}
+
+.button {
+position: absolute; width: 300px; left: 50%; margin-left: -150px;
+padding: 20px;
+text-align: center;
+font-size: 23px;
+border: 3px solid #a0b1e8;
+border-radius: 6px;
+box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2), inset 0 2px 1px rgba(0, 0, 0, 0.2);
+background: transparent;
+text-decoration: none;
+text-transform: uppercase;
+color: #fff;
+-webkit-transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;
+-ms-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+background-color: rgba(0,0,0,0.6);
+border: 3px solid #fff;
+color: #a0b1e8;
+}
+
+.checkbox {
+left: 50%; margin-left: -150px;
+color: #a0b1e8;
+}
+
+.table {
+width: 70%;
+max-width: 70%;
+margin-bottom: 20px;
+}
+
+.row {
+padding-left:100px;
+padding-right:100px;
+}
+
+.padding {
+padding-top:20px;
+padding-bottom:20px;
+}
+
+.paddingRow {
+padding-top:10px;
+}
+
+.paddingSM {
+padding-top:500px;
+}
+
+.siteManager {
+paddint-top:5000px;
+width:100%;
+height:4800px;
+background:url('/resource/bootstrap/images/zapposSMOrder.png') no-repeat center center;
+}
+
+.footer {
+width:100%;
+height:150px;
+background:url('/resource/bootstrap/images/footer.jpg');
+padding: 50 0 50 0;
+text-align:right;
+}
+
+
+/* Scroll button */
+
 
 .scroll-top-wrapper {
 position: fixed;
@@ -90,51 +156,3 @@ opacity: 1.0;
 .scroll-top-wrapper i.fa {
 line-height: inherit;
 }
-
-.btn-primary {
-background-color: #428bca;
-border-color: #357ebd;
-color: #fff;
-height:80px;
-width:330px;
-}
-
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-background-color: #3071a9;
-border-color: #285e8e;
-color: #fff;
-}
-
-.table {
-width: 70%;
-max-width: 70%;
-margin-bottom: 20px;
-}
-
-.row {
-padding-left:100px;
-}
-
-.padding {
-padding-top:20px;
-padding-bottom:20px;
-}
-
-.siteManager{
-width:100%;
-height:4800px;
-background:url('/resource/bootstrap/images/zapposSMOrder.png') no-repeat center center;
-}
-
-.footer{
-width:100%;
-height:150px;
-background:url('/resource/bootstrap/images/footer.jpg');
-padding: 50 0 50 0;
-text-align:right;
-}
-
-//add a date on top, clock, temps local info etc
-//make name smaller, order# and number of boxes bigger
-//Sort button to right of name, order and box#
-

@@ -14,88 +14,91 @@
     <title>Zappos Warehouse Order Sorter Program</title>
     </head>
     <body>
-    <div class="navbar-static-top navbar-inverse navbar-fixed-top" role="navigation" id="home">
-        <div class="container">
-            <div class="navbar-brand">
-                <img src="/resource/bootstrap/images/zapposLogoBlue.png" img-responsive img-left alt="logo"/>
-            </div>
-            <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-                Menu
-            </button>
-            <div class="collapse navbar-collapse navHeaderCollapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#viewOrder">View Order</a></li>
-                    <li><a href="#siteManager">Site Manager</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="scroll-top-wrapper ">
-        <span class="scroll-top-inner">
-            <i class="fa fa-2x fa-arrow-circle-up"></i>
-        </span>
-    </div>
     <section class="sortOrder" ng-app="sortOrderApp">
-    	<div ng-controller="sortOrderCtrl">
-            <div class="jumbotron padding">
-            </div>
-            <div>
+        <div ng-controller="sortOrderCtrl">
+            <div class="navbar-static-top navbar-inverse navbar-fixed-top" role="navigation" id="home">
                 <br>
                     <div class="row ">
-                        <div class="col-md-4">
-                        <button type="button" class="btn btn-primary btn-lg" id="viewOrder"
-                            ng-click="randomOrder()">
-                            <div ng-show="goCats">loading...</div>
-                            <div ng-show="!goCats">Sort Random Order</div>
-                        </button>
-                            <div class="checkbox">
-                                <label><input type="checkbox" ng-model="houseware" ng-true-value="1" ng-false-value="0">Remove Housewares</label>
-                            </div>
+                        <div class="col-md-4 paddingRow">
+                            <button type="button" class="btn button btn-lg" ng-click="randomOrder()" id="viewOrder">
+                                <div ng-show="goCats">loading...</div>
+                                <div ng-show="!goCats">Sort Order  <div class="glyphicon glyphicon-sort-by-attributes-alt"></div></div>
+                            </button>
                         </div>
-                        <div class="col-md-6">
-                                <p>Order Number:  {{order.orderNumber}} </p>
-                                <p>Customer Name: {{header.nameGen}} </p>
-                                <p>Number of Boxes: {{order.numOfBoxes}} </p>
+                        <div class="col-md-4 paddingRow">
+                            <p>Order Number:  {{order.orderNumber}} </p>
+                            <p>Customer Name: {{header.nameGen}} </p>
+                            <p>Number of Boxes: {{order.numOfBoxes}} </p>
                         </div>
+                        <div class="col-md-4 paddingRow" class="collapse navbar-collapse navHeaderCollapse">
+                            <ul class="nav navbar-nav navbar-left">
+                                <li><a href="#siteManager">Site Manager</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-4">
+                        <div class="checkbox">
+                            <label><input type="checkbox" ng-model="houseware" ng-true-value="1" ng-false-value="0">Remove Housewares</label>
+                        </div>
+                    </div>
                     </div>
                 </br>
             </div>
+
+
+
+            <div class="jumbotron">
+            </div>
+
+
+
+
+
+            <div class="scroll-top-wrapper ">
+                <span class="scroll-top-inner">
+                    <i class="fa fa-2x fa-arrow-circle-up"></i>
+                </span>
+            </div>
     		<div>
                 <br>
-    			    <div class="row" ng-repeat="box in order.boxes">
+    			    <div class="row padding" ng-repeat="box in order.boxes" id="accordion">
     			        <div class="col-md-2">
     			            <h1 ng-click="boxview=!boxview"><i class="glyphicon glyphicon-expand" ng-show="!boxview"></i><i class="glyphicon glyphicon-collapse-down" ng-show="boxview"></i>  Box {{box.boxId}}</h1>
                         </div>
-                            <div ng-show="boxview">
-                                <div class="col-md-8 padding">
-                                    <table class="table table-hover">
-                                        <tr ng-click="viewable=!viewable">
-                                            <th class="col-md-4">Item Name</th>
-                                            <th class="col-md-3">Item Type</th>
-                                            <th class="col-md-2">SKU#</th>
-                                            <th class="col-md-3">Item Size</th>
-                                        </tr>
-                                        <tr ng-repeat="item in box.boxItems" ng-show="viewable">
-                                            <td class="col-md-4">{{item.name}}</td>
-                                            <td class="col-md-3">{{item.itemType}}</td>
-                                            <td class="col-md-2">{{item.sku}}</td>
-                                            <td class="col-md-3">{{item.size}}</td>
-                                        </tr>
-                                    </table>
-                                </div>
+                        <div ng-show="boxview">
+                            <div class="col-md-8">
+                                <table class="table table-hover">
+                                    <tr ng-click="viewable=!viewable">
+                                        <th class="col-md-4">Item Name</th>
+                                        <th class="col-md-3">Item Type</th>
+                                        <th class="col-md-2">SKU#</th>
+                                        <th class="col-md-3">Item Size</th>
+                                    </tr>
+                                    <tr ng-repeat="item in box.boxItems" ng-show="viewable">
+                                        <td class="col-md-4">{{item.name}}</td>
+                                        <td class="col-md-3">{{item.itemType}}</td>
+                                        <td class="col-md-2">{{item.sku}}</td>
+                                        <td class="col-md-3">{{item.size}}</td>
+                                    </tr>
+                                </table>
                             </div>
+                        </div>
                     </div>
     		    </div>
     		</div>
         </div>
-            <div class="siteManager padding" id="siteManager">
-                <div class="container">
-                </div>
+
+
+
+        <div class="siteManager paddingSM" id="siteManager">
+            <div class="container">
             </div>
-            <div class="footer">
-                <div class="container">
-                </div>
+        </div>
+        <div class="footer">
+            <div class="container">
             </div>
+        </div>
     </section>
 
 
