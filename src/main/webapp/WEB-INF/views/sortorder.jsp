@@ -56,6 +56,8 @@
     		<div>
                 <br>
     			    <div class="row padding" ng-repeat="box in order.boxes" id="accordion">
+           			    <div class="col-md-2">
+                        </div>
     			        <div class="col-md-2">
     			            <h1 ng-click="boxview=!boxview"><i class="glyphicon glyphicon-expand" ng-show="!boxview"></i><i class="glyphicon glyphicon-collapse-down" ng-show="boxview"></i>  Box {{box.boxId}}</h1>
                         </div>
