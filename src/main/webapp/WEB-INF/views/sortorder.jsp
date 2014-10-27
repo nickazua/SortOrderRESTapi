@@ -16,83 +16,81 @@
     <body>
     <section class="sortOrder" ng-app="sortOrderApp">
         <div ng-controller="sortOrderCtrl">
-            <div class="navbar-static-top navbar-inverse navbar-fixed-top" role="navigation" id="home">
-                <br>
-                    <div class="row ">
-                        <div class="col-md-4 paddingRow">
-                            <button type="button" class="btn button btn-lg" ng-click="randomOrder()" id="viewOrder">
-                                <div ng-show="goCats">loading...</div>
-                                <div ng-show="!goCats">Sort Order  <div class="glyphicon glyphicon-sort-by-attributes-alt"></div></div>
-                            </button>
-                        </div>
-                        <div class="col-md-4 paddingRow">
-                            <p>Order Number:  {{order.orderNumber}} </p>
-                            <p>Customer Name: {{header.nameGen}} </p>
-                            <p1>Number of Boxes: {{order.numOfBoxes}} </p>
-                        </div>
-                        <div class="col-md-4 paddingRow" class="collapse navbar-collapse navHeaderCollapse">
-                            <ul class="nav navbar-nav navbar-left">
-                                <li><a href="#siteManager">Site Manager</a></li>
-                                <li><a href="#inspirational">Messages</a></li>
-                            </ul>
-                        </div>
+            <div class="navbar-static-top navbar-inverse navbar-fixed-top" style="height: 200px" role="navigation" id="home">
+                <div class="row ">
+                    <div class="col-md-4 paddingRow">
+                        <button type="button" class="btn button btn-lg" ng-click="randomOrder()" id="viewOrder">
+                            <div ng-show="goCats">loading...</div>
+                            <div ng-show="!goCats">Sort Order  <div class="glyphicon glyphicon-sort-by-attributes-alt"></div></div>
+                        </button>
                     </div>
-                    <div class="row">
-                    <div class="col-md-4">
-                        <div class="checkbox">
-                            <label><input type="checkbox" ng-model="houseware" ng-true-value="1" ng-false-value="0">Remove Housewares</label>
-                        </div>
+                    <div class="col-md-4 paddingRow">
+                        <p>Order Number:  {{order.orderNumber}} </p>
+                        <p>Customer Name: {{header.nameGen}} </p>
+                        <p1>Number of Boxes: {{order.numOfBoxes}} </p>
                     </div>
+                    <div class="col-md-4 paddingRow" class="collapse navbar-collapse navHeaderCollapse">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li><a href="#siteManager">Site Manager</a></li>
+                            <li><a href="#inspirational">Messages</a></li>
+                        </ul>
                     </div>
-                </br>
+                </div>
+                <div class="row">
+                <div class="col-md-4">
+                    <div class="checkbox">
+                        <label><input type="checkbox" ng-model="houseware" ng-true-value="1" ng-false-value="0">Remove Housewares</label>
+                    </div>
+                </div>
+                </div>
             </div>
+            <!---
             <div class="jumbotron">
             </div>
+            -->
             <div class="scroll-top-wrapper ">
                 <span class="scroll-top-inner">
                     <i class="fa fa-2x fa-arrow-circle-up"></i>
                 </span>
             </div>
-    		<div>
-                <br>
-    			    <div class="row padding" ng-repeat="box in order.boxes" id="accordion">
-           			    <div class="col-md-2">
-                        </div>
-    			        <div class="col-md-2">
-    			            <h1 ng-click="boxview=!boxview"><i class="glyphicon glyphicon-expand" ng-show="!boxview"></i><i class="glyphicon glyphicon-collapse-down" ng-show="boxview"></i>  Box {{box.boxId}}</h1>
-                        </div>
-                        <div ng-show="boxview">
-                            <div class="col-md-8">
-                                <table class="table table-hover">
-                                    <tr ng-click="viewable=!viewable">
-                                        <th class="col-md-4">Item Name</th>
-                                        <th class="col-md-3">Item Type</th>
-                                        <th class="col-md-2">SKU#</th>
-                                        <th class="col-md-3">Item Size</th>
-                                    </tr>
-                                    <tr ng-repeat="item in box.boxItems" ng-show="viewable">
-                                        <td class="col-md-4">{{item.name}}</td>
-                                        <td class="col-md-3">{{item.itemType}}</td>
-                                        <td class="col-md-2">{{item.sku}}</td>
-                                        <td class="col-md-3">{{item.size}}</td>
-                                    </tr>
-                                </table>
-                            </div>
+    		<div id="boxList" style="padding-top: 200px;">
+                <div class="row padding" ng-repeat="box in order.boxes" id="accordion">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-2">
+                        <h1 ng-click="boxview=!boxview"><i class="glyphicon glyphicon-expand" ng-show="!boxview"></i><i class="glyphicon glyphicon-collapse-down" ng-show="boxview"></i>  Box {{box.boxId}}</h1>
+                    </div>
+                    <div ng-show="boxview">
+                        <div class="col-md-8">
+                            <table class="table table-hover">
+                                <tr ng-click="viewable=!viewable">
+                                    <th class="col-md-4">Item Name</th>
+                                    <th class="col-md-3">Item Type</th>
+                                    <th class="col-md-2">SKU#</th>
+                                    <th class="col-md-3">Item Size</th>
+                                </tr>
+                                <tr ng-repeat="item in box.boxItems" ng-show="viewable">
+                                    <td class="col-md-4">{{item.name}}</td>
+                                    <td class="col-md-3">{{item.itemType}}</td>
+                                    <td class="col-md-2">{{item.sku}}</td>
+                                    <td class="col-md-3">{{item.size}}</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
-    		    </div>
+                </div>
     		</div>
-        </div>
-        <div class="siteManager paddingSM" id="siteManager">
-            <div class="container">
+    		<div id="siteManager">
+                <img src="/resource/bootstrap/images/zapposSMOrder.png" height="4269" width="960" />
             </div>
-        </div>
-        <div class="heroImage" id="inspirational">
-            <img src="/resource/bootstrap/images/heroImageOne.jpg" class="img-responsive" />
-        </div>
-
-        <div class="footer">
-            <div class="container">
+            <!---
+            <div class="heroImage" id="inspirational">
+                <img src="/resource/bootstrap/images/heroImageOne.jpg" class="img-responsive" />
+            </div>
+            -->
+            <div class="footer">
+                <div class="container">
+                </div>
             </div>
         </div>
     </section>
@@ -145,6 +143,13 @@
         offsetTop = offset.top;
         $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
     }
+
+    $(document).ready(function() {
+        $("#boxList").bind("DOMNodeInserted", function() {
+            $("#siteManager").show();
+            $("#boxList").unbind();
+        });
+    });
     </script>
     </body>
 </html>

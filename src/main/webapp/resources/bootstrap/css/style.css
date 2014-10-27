@@ -43,7 +43,7 @@ padding-left: 60px;
 /* Sort Order button */
 
 .button {
-position: absolute; width: 300px; left: 50%; margin-left: -150px;
+width: 300px; left: 50%;
 padding: 20px;
 text-align: center;
 font-size: 23px;
@@ -96,17 +96,11 @@ padding-bottom:20px;
 padding-top:10px;
 }
 
-.paddingSM {
-padding-top:500px;
-}
-
 /* SM and Footer */
 
-.siteManager {
-paddint-top:5000px;
-width:100%;
-height:4800px;
-background:url('/resource/bootstrap/images/zapposSMOrder.png') no-repeat center center;
+#siteManager {
+    display: none;
+    text-align: center;
 }
 
 .heroImage {
@@ -118,8 +112,8 @@ padding: 0;
 .footer {
 width:100%;
 height:150px;
-background:url('/resource/bootstrap/images/footer.jpg');
-padding: 50 0 50 0;
+background:url('/resource/bootstrap/images/footer.jpg') bottom no-repeat;
+padding: 400 0 50 0;
 text-align:right;
 }
 
